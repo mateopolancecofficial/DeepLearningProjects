@@ -1,5 +1,6 @@
 import requests
 import json
+from Deployment.BaseStructures import Model
 
 
 # defining the api-endpoint
@@ -10,7 +11,7 @@ data = {"data": {'x0': [9.353670, 10.457191],
                  'x1': [-5.681740, -8.771499],
                  'x2': [1.739091, 1.500788],
                  'x3': [26.117712, 41.984114]},
-        "model": 0}
+        "model": Model.EXTEND.value}
 
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 

@@ -21,25 +21,25 @@ app = Flask(__name__)
 
 @app.route('/model/score', methods=['POST'])
 def score() -> Response:
-    """Base model vineyard predictions API endpoint. """
+    """Model vineyard predictions API endpoint. """
     request_data = request.json
     X = make_features_from_request_data(request_data)
     model = request_data["model"]
     model_output = model_predictions(X, model).tolist()
-    response_data = json.dumps({'base_model_predictions': model_output})
+    response_data = json.dumps({'model_predictions': model_output})
     return response_data
 
 
 def make_features_from_request_data(
     request_data: Dict[str, float]
 ) -> pd.DataFrame:
-    """Create feature array from JSON data parsed as dictionary."""
+    """Create pandas DataFrame object from JSON data parsed as dictionary."""
     X = pd.DataFrame.from_dict(request_data["data"])
     return X
 
 
 def model_predictions(features: pd.DataFrame, model_p: bool):
-    """Return model score for a single instance of feature data."""
+    """Return model predictions for a single or multiple instances of feature data."""
     input_dataset = tf.convert_to_tensor(base_ft.transform(features), dtype="float32")
     if model_p == Model.EXTEND.value:
         prediction = model_extend.predict(input_dataset)
