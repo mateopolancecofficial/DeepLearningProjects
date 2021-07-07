@@ -1,0 +1,2 @@
+PCA analysis will be excluded from training step because - all features are independent in input dataset
+                                                         - principal components aspect ratios are near the same
