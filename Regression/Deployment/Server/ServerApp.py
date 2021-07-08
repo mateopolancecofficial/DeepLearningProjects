@@ -1,3 +1,6 @@
+import sys
+sys.path.append("/app")
+
 from typing import Dict
 from flask import Flask, request, Response
 from joblib import load
@@ -9,12 +12,12 @@ from Deployment.BaseStructures import Model
 
 
 # set models paths
-BASE_MODEL_PATH = '../../TensorflowModels/BaseModel'
-EXTENDED_MODEL_PATH = '../../TensorflowModels/ExtendModel'
-BASE_MODEL_FT = '../../Transformers/BaseModelFT.pkl'
-BASE_MODEL_TT = '../../Transformers/BaseModelTT.pkl'
-EXTEND_MODEL_FT = '../../Transformers/ExtendModelFT.pkl'
-EXTEND_MODEL_TT = '../../Transformers/ExtendModelTT.pkl'
+BASE_MODEL_PATH = '/app/TensorflowModels/BaseModel'
+EXTENDED_MODEL_PATH = '/app/TensorflowModels/ExtendModel'
+BASE_MODEL_FT = '/app/Transformers/BaseModelFT.pkl'
+BASE_MODEL_TT = '/app/Transformers/BaseModelTT.pkl'
+EXTEND_MODEL_FT = '/app/Transformers/ExtendModelFT.pkl'
+EXTEND_MODEL_TT = '/app/Transformers/ExtendModelTT.pkl'
 
 app = Flask(__name__)
 

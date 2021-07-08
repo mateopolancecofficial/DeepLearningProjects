@@ -1,2 +1,4 @@
-PCA analysis will be excluded from training step because - all features are independent in input dataset
-                                                         - principal components aspect ratios are near the same
+Build docker image and run docker container:
+
+docker build . -t app
+docker run -p 5000:5000 -d app
